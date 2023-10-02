@@ -232,7 +232,7 @@ endif()
 # Examples
 #---------------------------
 
-option(BINLOG_BUILD_EXAMPLES "Build the examples" OFF)
+option(BINLOG_BUILD_EXAMPLES "Build the examples" ON)
 
 if (BINLOG_BUILD_EXAMPLES)
   function(add_example name)
