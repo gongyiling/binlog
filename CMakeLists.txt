@@ -169,13 +169,13 @@ add_library(headers INTERFACE)
   endif()
 
 add_library(binlog STATIC
-  include/binlog/EventStream.cpp
-  include/binlog/Time.cpp
-  include/binlog/ToStringVisitor.cpp
-  include/binlog/PrettyPrinter.cpp
-  include/binlog/EntryStream.cpp
-  include/binlog/TextOutputStream.cpp
-  include/binlog/detail/OstreamBuffer.cpp
+  src/binlog/EventStream.cpp
+  src/binlog/Time.cpp
+  src/binlog/ToStringVisitor.cpp
+  src/binlog/PrettyPrinter.cpp
+  src/binlog/EntryStream.cpp
+  src/binlog/TextOutputStream.cpp
+  src/binlog/detail/OstreamBuffer.cpp
 )
   target_link_libraries(binlog PUBLIC headers)
   set_property(TARGET binlog PROPERTY INTERPROCEDURAL_OPTIMIZATION ${BINLOG_HAS_IPO})
@@ -210,7 +210,7 @@ endif()
 # brecovery
 #---------------------------
 
-option(BINLOG_BUILD_BRECOVERY "Build the brecovery binary" ON)
+option(BINLOG_BUILD_BRECOVERY "Build the brecovery binary" OFF)
 
 if (BINLOG_BUILD_BRECOVERY)
   add_executable(brecovery
@@ -226,13 +226,13 @@ endif()
 # Documentation
 #---------------------------
 
-markdown_to_html_group(Documentation UserGuide Internals Mserialize)
+# markdown_to_html_group(Documentation UserGuide Internals Mserialize)
 
 #---------------------------
 # Examples
 #---------------------------
 
-option(BINLOG_BUILD_EXAMPLES "Build the examples" ON)
+option(BINLOG_BUILD_EXAMPLES "Build the examples" OFF)
 
 if (BINLOG_BUILD_EXAMPLES)
   function(add_example name)
@@ -314,7 +314,7 @@ endif()
 # Integration Test
 #---------------------------
 
-option(BINLOG_BUILD_INTEGRATION_TESTS "Build the integration tests" ON)
+option(BINLOG_BUILD_INTEGRATION_TESTS "Build the integration tests" OFF)
 
 if (BINLOG_BUILD_INTEGRATION_TESTS)
   message(STATUS "Build integration tests")
