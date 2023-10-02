@@ -255,7 +255,7 @@ endif()
 # Unit Test
 #---------------------------
 
-option(BINLOG_BUILD_UNIT_TESTS "Build the unit tests" ON)
+option(BINLOG_BUILD_UNIT_TESTS "Build the unit tests" OFF)
 
 if (BINLOG_BUILD_UNIT_TESTS)
   message(STATUS "Build unit tests")
