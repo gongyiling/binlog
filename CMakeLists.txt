@@ -175,6 +175,7 @@ add_library(binlog STATIC
   src/binlog/PrettyPrinter.cpp
   src/binlog/EntryStream.cpp
   src/binlog/TextOutputStream.cpp
+  src/binlog/NanoLogCpp.cpp
   src/binlog/detail/OstreamBuffer.cpp
 )
   target_link_libraries(binlog PUBLIC headers)
@@ -237,7 +238,7 @@ option(BINLOG_BUILD_EXAMPLES "Build the examples" ON)
 if (BINLOG_BUILD_EXAMPLES)
   function(add_example name)
     add_executable(${name} example/${name}.cpp)
-    target_link_libraries(${name} headers)
+    target_link_libraries(${name} binlog headers)
   endfunction()
 
   add_example(HelloWorld)
